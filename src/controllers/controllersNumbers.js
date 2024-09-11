@@ -1,18 +1,17 @@
 module.exports = class controllersNumbers {
-  
   static async checkPar(req, res) {
     const { numbers } = req.body;
 
-   
+    //Verifica se numbers é um numero
     if (typeof numbers !== "number") {
       res.status(400).json({ message: "Dados inválidos" });
     }
 
-    
+    //Verifica se o numero é par ou impar
     if (numbers % 2 === 0) {
-      res.status(200).json({ resultado: "numero par" });
+      res.status(200).json({ resultado: "numero par!!" });
     } else {
-      res.status(200).json({ resultado: "numero ímpar" });
+      res.status(200).json({ resultado: "numero ímpar!!!" });
     }
   }
 
@@ -23,9 +22,9 @@ module.exports = class controllersNumbers {
     }
     for (let i = 2; i <= Math.sqrt(numbers); i++) {
       if (numbers % i === 0) {
-        res.status(200).json({ resultado: "Não é um número primo" });
+        res.status(200).json({ resultado: "Não é um número Primo" });
       }
     }
-    return res.status(200).json({ resultado: "É um número primo" });
+    return res.status(200).json({ resultado: "É um número Primo" });
   }
 };
